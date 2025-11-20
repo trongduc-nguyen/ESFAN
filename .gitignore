@@ -1,0 +1,81 @@
+# ---------------------------
+# Python cache & environment
+# ---------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.ipynb_checkpoints/
+.env
+.venv
+seg/
+
+# ---------------------------
+# VSCode
+# ---------------------------
+.vscode/
+
+# ---------------------------
+# Dataset & images
+# ---------------------------
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.bmp
+*.gif
+
+datasets/
+LUAD-HistoSeg/
+LUAD-HistoSeg_OneShot/
+results/
+
+# Zip files (BCSS, LUAD,…)
+*.zip
+
+# ---------------------------
+# Checkpoints / Weights
+# ---------------------------
+*.pth
+*.pt
+*.ckpt
+*.npz
+*.npy
+
+checkpoints/
+checkpoints_joint/
+checkpoints_oneshot/
+init_weights/
+stage1_checkpoint_trained_on_bcss.pth
+
+# ---------------------------
+# Logs
+# ---------------------------
+logs/
+*.log
+training_log.txt
+
+# ---------------------------
+# Lists & txt data files
+# ---------------------------
+train.lst
+val.lst
+test.lst
+correct_predictions_luad.txt
+
+# ---------------------------
+# Jupyter Notebook large outputs
+# ---------------------------
+*.ipynb
+
+# Nếu muốn giữ notebook nhưng không giữ output:
+# (giữ .ipynb nhưng xóa phần checkpoint và output)
+# *.ipynb_checkpoints/
+
+# ---------------------------
+# Temporary / misc
+# ---------------------------
+*.DS_Store
+__MACOSX/
