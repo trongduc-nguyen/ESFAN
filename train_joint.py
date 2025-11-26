@@ -178,9 +178,12 @@ def main(args):
             checkpoint_path = os.path.join(args.save_dir, f"joint_model_epoch_{epoch+1}.pth")
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Đã lưu checkpoint tại: {checkpoint_path}")
-        if (epoch + 1) % 10 == 0:
-            temp_lambda_oneshot = temp_lambda_oneshot * 1.2
+        if (epoch + 1) % 9 == 0:
+            temp_lambda_oneshot = temp_lambda_oneshot * 2
             temp_relative_conf_threshold = temp_relative_conf_threshold - 0.1
+            if temp_relative_conf_threshold == 0:
+                temp_relative_conf_threshold = 0.1
+
             
     print("Hoàn tất huấn luyện đồng thời!")
 if __name__ == '__main__':
@@ -193,7 +196,7 @@ if __name__ == '__main__':
     parser.add_argument("--wt_dec", default=5e-4, type=float)
     parser.add_argument("--n_class", default=4, type=int)
     parser.add_argument("--save_dir", default='checkpoints_joint/', type=str)
-    parser.add_argument("--save_interval", type=int, default=5)
+    parser.add_argument("--save_interval", type=int, default=3)
     parser.add_argument("--dataset", default='luad', type=str)
 
     # ... (Các tham số lr, wt_dec, n_class, save_dir, save_interval, dataset giữ nguyên)
@@ -202,7 +205,7 @@ if __name__ == '__main__':
     parser.add_argument("--input_size", type=int, default=224)
 
     parser.add_argument("--weights", default='init_weights/ilsvrc-cls_rna-a1_cls1000_ep-0001.params', type=str)
-    parser.add_argument("--trainroot", default='LUAD-HistoSeg/training/img', type=str)
+    parser.add_argument("--trainroot", default='datasets/LUAD-HistoSeg/training', type=str)
     
     parser.add_argument("--lambda_oneshot", type=float, default=0.05, help="Hệ số cho one-shot loss.")
     parser.add_argument("--lambda_align", type=float, default=0.3, help="Hệ số cho one-shot alignment loss.")

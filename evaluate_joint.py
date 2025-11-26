@@ -11,6 +11,7 @@ import torch.nn.functional as F
 from torchvision import transforms
 from torch.utils.data import DataLoader
 from collections import OrderedDict
+os.environ["CUDA_VISIBLE_DEVICES"] = "5"
 
 # Import các thành phần cần thiết
 from joint_model import JointModel
@@ -20,8 +21,8 @@ def main():
     parser = argparse.ArgumentParser(description="Evaluate CAM from Jointly Trained Model")
     parser.add_argument("--n_class", default=4, type=int)
     parser.add_argument("--num_workers", default=8, type=int)
-    parser.add_argument("--checkpoint_path", default='checkpoints_joint/joint_model_epoch_25.pth', type=str)
-    parser.add_argument("--testroot", default='LUAD-HistoSeg/test/', type=str)
+    parser.add_argument("--checkpoint_path", default='checkpoints_joint/joint_model_epoch_36.pth', type=str)
+    parser.add_argument("--testroot", default='datasets/LUAD-HistoSeg/test/', type=str)
     parser.add_argument("--input_size", default=224, type=int)
     parser.add_argument("--batch_size", default=16, type=int)
     # Thêm action để tương thích hoàn toàn, mặc dù chúng ta chỉ dùng 'evaluate'

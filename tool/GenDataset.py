@@ -7,7 +7,7 @@ from torchvision import transforms
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from tool import custom_transforms as tr
-import numpy as np
+
 class Stage1_InferDataset(Dataset):
     def __init__(self, data_path, transform=None, target_transform=None):
         self.data_path = data_path
@@ -47,8 +47,7 @@ class Stage1_TrainDataset(Dataset):
         img = Image.open(fn).convert('RGB')
         if self.transform is not None:
             img = self.transform(img)
-        img_np = np.array(img)
-        return fn.split('/')[-1][:-4], img_np, label
+        return fn.split('/')[-1][:-4], img, label
         
     def __len__(self):
         return len(self.object)
