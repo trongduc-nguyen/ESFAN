@@ -26,12 +26,15 @@ seg/
 *.tiff
 *.bmp
 *.gif
-
+BCSS/
+LUAD-HistoSeg/
+*.out
+*.err
 datasets/
 LUAD-HistoSeg/
 LUAD-HistoSeg_OneShot/
 results/
-
+*.csv
 # Zip files (BCSS, LUAD,…)
 *.zip
 
@@ -43,7 +46,8 @@ results/
 *.ckpt
 *.npz
 *.npy
-
+*.zip
+*.params
 checkpoints/
 checkpoints_joint/
 checkpoints_oneshot/
@@ -55,7 +59,6 @@ stage1_checkpoint_trained_on_bcss.pth
 # ---------------------------
 logs/
 *.log
-training_log.txt
 
 # ---------------------------
 # Lists & txt data files
@@ -63,7 +66,7 @@ training_log.txt
 train.lst
 val.lst
 test.lst
-correct_predictions_luad.txt
+*.txt
 
 # ---------------------------
 # Jupyter Notebook large outputs
